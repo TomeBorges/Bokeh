@@ -13,3 +13,6 @@ ZigZag library also included but dispensable.
 ```
 ./Candlesticks.py
 ```
+## Screenshot:
+
+![Screenshot](screenshot.png?raw=true "Title")
