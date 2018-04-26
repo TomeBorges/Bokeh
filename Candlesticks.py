@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import numpy as np
 import pandas as pd
 
 from zigzag import * 
@@ -37,7 +36,8 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
 	r1 = p.vbar('Date', width, 'Open', 'Close', fill_color="#7BE61D", line_color="black", source=sourceInc) #Bullish entrances
 	r2 = p.vbar('Date', width, 'Open', 'Close', fill_color="#F2583E", line_color="black", source=sourceDec) #Bearish entrances
 
-	#the values for the tooltip come from ColumnDataSource
+	# Bokeh format types referenced in: https://bokeh.pydata.org/en/latest/docs/reference/models/formatters.html
+	# the values for the tooltip come from ColumnDataSource
 	hover = HoverTool(
 	    tooltips=[
 	        ("Date", "@Date{%F %T}"), #Format: %Y-%M-%D %h:%m:%s
@@ -45,7 +45,7 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
 	        ("Close", "@Close"),
 	        ("High", "@High"),
 	        ("Low", "@Low"),
-	        ("Volume", "@Volume"),
+	        ("Volume", "@Volume{'0,0.0[000]'}"),
 	    ],
 	    formatters={
         'Date'      : 'datetime', # use 'datetime' formatter for 'date' field
