@@ -17,4 +17,4 @@ Resulting HTML will be saved on a folder called "HTMLs".
 ```
 ## Screenshot:
 
-![Screenshot](Screenshot.png?raw=true "Title")
+![Screenshot](screenshot.png?raw=true "Title")
