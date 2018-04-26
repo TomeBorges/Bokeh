@@ -55,38 +55,42 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
 	)
 	p.add_tools(hover)
 
-
-	#ZigZag Algorithm
+	# ZigZag Algorithm Start ----------------
 	p.line(dfZ.Time[pivots != 0], dfZ.Close[pivots != 0], color='#0E96EE', legend='ZigZag Algorithm')	
 	p.circle((dfZ.Time [pivots == 1]).tolist(), dfZ.Close[pivots == 1], color="#7BE61D", fill_alpha=0.2, size=7, legend='ZigZag Algorithm') #Top
 	p.circle((dfZ.Time [pivots == -1]).tolist(), dfZ.Close[pivots == -1], color="#F2583E", fill_alpha=0.2, size=7, legend='ZigZag Algorithm') #Bottom
 	
 	p.legend.location = "top_left"
 	p.legend.click_policy = "hide" #If clicked on legend, all elements with the parameter {legend='ZigZag Algorithm'} will be hiden
+	# ZigZag Algorithm End ------------------
+
 
 	output_file( 'HTMLs/' + FileLocation.strip('.csv') + ".html", title = FileLocation.strip('.csv') + ' Candlesticks')
 	show(p)  # open a browser
 
+
 def main():
 
-	#from pandas_datareader import get_data_yahoo
 	FileLocation = 'TRXETH.csv'
 	df = pd.read_csv('Data/' + FileLocation, sep=',')
 
-
+	# Column names received from Binance. Column names may differ!
 	new = df[['Open time', 'Open', 'High', 'Low', 'Close', 'Volume']].copy()
 	new["Open time"] = pd.to_datetime(new["Open time"],format = '%Y-%m-%d %H:%M:%S')
-	#ZigZag Pivots
+	
+	# ZigZag Algorithm Start ----------------
+	# ZigZag Pivots
 	dfZ = new['Close'].as_matrix()
 	pivots = peak_valley_pivots(dfZ, 0.1, -0.1)
 	
-	#Dataframe containing Pivots and Close (value) synced with the Date for the ZigZag algorithm
+	# Dataframe containing Pivots and Close (value) synced with the Date for the ZigZag algorithm
 	dfZ = pd.DataFrame({'Pivots':pivots})
 	dfZ['Time'] = new["Open time"]
 	dfZ['Close'] = new['Close']
-	#Function to plot candesticks (df) and ZigZag algorithm (pivots, X)
+	# ZigZag Algorithm End ------------------
+
+
+	#Function to plot the dataframe (candesticks) and the ZigZag algorithm (pivots)
 	Bokeh(new, pivots, dfZ, FileLocation)
 	
-
 main()
-
