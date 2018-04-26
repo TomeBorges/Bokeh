@@ -9,7 +9,7 @@ Resulting HTML will be saved on a folder called "HTMLs/".
 ### Prerequisites
 * [Bokeh](https://bokeh.pydata.org/en/latest/)
 * [Pandas](https://pandas.pydata.org/)
-* [ZigZag](https://pypi.org/project/ZigZag/0.2.1/) library also included but dispensable.
+* [ZigZag](https://pypi.org/project/ZigZag/0.2.1/) Algorithm included but dispensable to represent OHLC candlesticks.
 
 # To run:
 ```
