@@ -2,9 +2,9 @@
 
 Market representation using Bokeh module.
 
-File location of the data to be represented is hardcoded. Data should be stored in a folder called "Data".
+File location of the data to be represented is hardcoded. Data should be stored in a folder called "Data/".
 
-Resulting HTML will be saved on a folder called "HTMLs".
+Resulting HTML will be saved on a folder called "HTMLs/".
 
 ### Prerequisites
 * [Bokeh](https://bokeh.pydata.org/en/latest/)
