@@ -15,4 +15,4 @@ ZigZag library also included but dispensable.
 ```
 ## Screenshot:
 
-![Screenshot](screenshot.png?raw=true "Title")
+![Screenshot](Screenshot.png?raw=true "Title")
