@@ -7,7 +7,7 @@ Data file to be represented is hardcoded and should be stored in a folder called
 ### Prerequisites
 * [Bokeh](https://bokeh.pydata.org/en/latest/)
 * [Pandas](https://pandas.pydata.org/)
-* ZigZag library also included but dispensable.
+* [ZigZag](https://pypi.org/project/ZigZag/0.2.1/) library also included but dispensable.
 
 # To run:
 ```
