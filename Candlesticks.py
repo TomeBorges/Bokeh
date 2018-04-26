@@ -55,14 +55,14 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
 	)
 	p.add_tools(hover)
 
-	# ZigZag Algorithm Start ----------------
+	# ZigZag Algorithm Start -------------------------
 	p.line(dfZ.Time[pivots != 0], dfZ.Close[pivots != 0], color='#0E96EE', legend='ZigZag Algorithm')	
 	p.circle((dfZ.Time [pivots == 1]).tolist(), dfZ.Close[pivots == 1], color="#7BE61D", fill_alpha=0.2, size=7, legend='ZigZag Algorithm') #Top
 	p.circle((dfZ.Time [pivots == -1]).tolist(), dfZ.Close[pivots == -1], color="#F2583E", fill_alpha=0.2, size=7, legend='ZigZag Algorithm') #Bottom
 	
 	p.legend.location = "top_left"
 	p.legend.click_policy = "hide" #If clicked on legend, all elements with the parameter {legend='ZigZag Algorithm'} will be hiden
-	# ZigZag Algorithm End ------------------
+	# ZigZag Algorithm End ---------------------------
 
 
 	output_file( 'HTMLs/' + FileLocation.strip('.csv') + ".html", title = FileLocation.strip('.csv') + ' Candlesticks')
@@ -78,7 +78,7 @@ def main():
 	new = df[['Open time', 'Open', 'High', 'Low', 'Close', 'Volume']].copy()
 	new["Open time"] = pd.to_datetime(new["Open time"],format = '%Y-%m-%d %H:%M:%S')
 	
-	# ZigZag Algorithm Start ----------------
+	# ZigZag Algorithm Start -------------------------
 	# ZigZag Pivots
 	dfZ = new['Close'].as_matrix()
 	pivots = peak_valley_pivots(dfZ, 0.1, -0.1)
@@ -87,7 +87,7 @@ def main():
 	dfZ = pd.DataFrame({'Pivots':pivots})
 	dfZ['Time'] = new["Open time"]
 	dfZ['Close'] = new['Close']
-	# ZigZag Algorithm End ------------------
+	# ZigZag Algorithm End ---------------------------
 
 
 	#Function to plot the dataframe (candesticks) and the ZigZag algorithm (pivots)
