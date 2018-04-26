@@ -1,8 +1,14 @@
-# Bokeh
+# Bokeh Market Representation
 
-Bokeh representation of crypotcurrency markets
+Market representation using Bokeh module.
 
 Data to be represented should be stored in a folder called "Data", and resulting html will be saved on to a folder called "HTMLs"
-To run:
 
+### Prerequisites
+Bokeh Python lib
+ZigZag Python lib
+
+# To run:
+```
 ./Candlesticks.py
+```
