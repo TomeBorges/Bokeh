@@ -19,7 +19,7 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
 	inc = df_ohlc.Close > df_ohlc.Open #Bullish entrances
 	dec = df_ohlc.Open > df_ohlc.Close #Bearish entrances
 
-	width = (df_ohlc["Date"][1] - df_ohlc["Date"][0]).total_seconds() *1000 # Time difference between each entry on pandas DataFrame in ms
+	width = (df_ohlc["Date"][1] - df_ohlc["Date"][0]).total_seconds() *1000 # Time difference in miliseconds between each entry on pandas DataFrame
 	
 	#use ColumnDataSource to pass in data for tooltips (HoverTool)
 	sourceInc=ColumnDataSource(ColumnDataSource.from_df(df_ohlc.loc[inc]))
