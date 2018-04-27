@@ -13,7 +13,7 @@ Resulting HTML will be saved on a folder called "HTMLs/".
 
 # To run:
 ```
-./Candlesticks.py
+./OHLC.py
 ```
 ## Screenshot:
 
