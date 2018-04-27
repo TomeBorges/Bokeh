@@ -51,7 +51,7 @@ def Bokeh(df_ohlc, pivots, dfZ, FileLocation):	#FileLocation to be added as a ti
         'Date'      : 'datetime', # use 'datetime' formatter for 'date' field
     	},
     	mode='vline',
-    	renderers=[r1,r2] # Added so hovertool only appears on top of candle-bar. Not on sticks or ZigZag's circles
+    	renderers=[r1,r2] # Added so hovertool only appears on top of candle-bar. Not on candlesticks or ZigZag's circles
 	)
 	p.add_tools(hover)
 
